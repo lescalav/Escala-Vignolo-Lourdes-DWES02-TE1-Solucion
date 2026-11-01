@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once 'VehicleController.php';
+
 function request(): void
 {
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
@@ -8,13 +10,15 @@ function request(): void
     if ($method === 'GET') {
         $id = $_GET['id'];
         $controlador = new VehicleController();
-        $controlador->getById((int)$id);
+        $mostrarvehiculo = $controlador->getById((int)$id);
+        echo json_encode($mostrarvehiculo);
     }
 
     if ($method === 'POST') {
         $jsonPost = $_POST['jsonPost'];
         $controlador = new VehicleController();
-        $controlador->store($jsonPost);
+        $mostrartodos = $controlador->store($jsonPost);
+        echo json_encode($mostrartodos);
     }
 }
 

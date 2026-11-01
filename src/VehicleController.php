@@ -1,7 +1,9 @@
 <?php
 
 require_once 'Vehiculo.php';
-$VEHICULOS = require_once 'vehiculos_bbdd.php';
+require_once 'Coche.php';
+require_once 'Moto.php';
+require_once 'vehiculos_bbdd.php';
 
 class VehicleController {
     
@@ -25,7 +27,7 @@ class VehicleController {
     
     private function leerVehiculos() {
         $arrayVehiculos = [];
-        foreach ($VEHICULOS as $vehiculo) {
+        foreach (VEHICULOS as $vehiculo) {
             $vehiculoObj = $this->definirTipo($vehiculo);
             if ($vehiculoObj !== null) {
                 $arrayVehiculos[] = $vehiculoObj; 
