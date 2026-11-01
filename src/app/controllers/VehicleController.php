@@ -1,18 +1,20 @@
 <?php
 
-require_once 'Vehiculo.php';
-require_once 'Coche.php';
-require_once 'Moto.php';
-require_once 'vehiculos_bbdd.php';
+declare(strict_types=1);
+
+require_once __DIR__ . '/../models/Vehiculo.php';
+require_once __DIR__ . '/../models/Coche.php';
+require_once __DIR__ . '/../models/Moto.php';
+require_once __DIR__ . '/../../vehiculos_bbdd.php';
 
 class VehicleController {
     
-    public function store(string $vehiculoData): ?Vehiculo {
+    public function store(string $vehiculoData): array {
         $todosVehiculos = $this->leerVehiculos();
         $vehiculoData = json_decode($vehiculoData, true);
         $nuevoVehiculo = $this->definirTipo($vehiculoData);
         $todosVehiculos[] = $nuevoVehiculo;
-        return $nuevoVehiculo;       
+        return $todosVehiculos;       
     }
 
     public function getById(int $id): ?Vehiculo {

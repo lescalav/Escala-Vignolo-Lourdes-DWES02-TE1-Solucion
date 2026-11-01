@@ -1,12 +1,12 @@
 <?php
 
-class Vehiculo {
+class Vehiculo implements JsonSerializable{
 
-private int $id;
-private string $marca;
-private string $modelo;
-private int $anio;
-private string $tipo;
+protected int $id;
+protected string $marca;
+protected string $modelo;
+protected int $anio;
+protected string $tipo;
 
     public function __construct(int $id, string $marca, string $modelo, int $anio, string $tipo) {
         $this->id = $id;
@@ -34,6 +34,16 @@ private string $tipo;
 
     public function getTipo(): string {
         return $this->tipo;
+    }
+
+    public function jsonSerialize(): array {
+        return [
+            'id' => $this->id,
+            'marca' => $this->marca,
+            'modelo' => $this->modelo,
+            'anio' => $this->anio,
+            'tipo' => $this->tipo
+        ];
     }
     
 }

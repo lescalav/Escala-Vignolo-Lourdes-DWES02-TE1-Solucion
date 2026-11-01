@@ -1,7 +1,7 @@
 <?php
 
 class Coche extends Vehiculo {
-    private int $puertas;
+    protected int $puertas;
 
     public function __construct(int $id, string $marca, string $modelo, int $anio, string $tipo, int $puertas) {
         parent::__construct($id, $marca, $modelo, $anio, $tipo);
@@ -11,4 +11,11 @@ class Coche extends Vehiculo {
     public function getPuertas(): int {
         return $this->puertas;
     }
+
+    public function jsonSerialize(): array {
+        $data = parent::jsonSerialize();
+        $data['puertas'] = $this->puertas;
+        return $data;
+    }
+    
 }
