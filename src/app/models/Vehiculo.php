@@ -1,6 +1,8 @@
 <?php
 
-class Vehiculo implements JsonSerializable{
+namespace app\models;
+
+class Vehiculo {
 
 protected int $id;
 protected string $marca;
@@ -36,14 +38,5 @@ protected string $tipo;
         return $this->tipo;
     }
 
-    public function jsonSerialize(): array {
-        return [
-            'id' => $this->id,
-            'marca' => $this->marca,
-            'modelo' => $this->modelo,
-            'anio' => $this->anio,
-            'tipo' => $this->tipo
-        ];
-    }
     
 }

@@ -1,5 +1,6 @@
 <?php
 
+namespace app\models;
 class Coche extends Vehiculo {
     protected int $puertas;
 
@@ -12,10 +13,5 @@ class Coche extends Vehiculo {
         return $this->puertas;
     }
 
-    public function jsonSerialize(): array {
-        $data = parent::jsonSerialize();
-        $data['puertas'] = $this->puertas;
-        return $data;
-    }
     
 }

@@ -1,4 +1,5 @@
 <?php
+
 $extra = '';
 if ($mostrarvehiculo instanceof Coche) {
     $extra = 'Puertas: ' . $mostrarvehiculo->getPuertas();
@@ -6,15 +7,14 @@ if ($mostrarvehiculo instanceof Coche) {
     $extra = 'Sidecar: ' . ($mostrarvehiculo->getSidecar() ? 'Sí' : 'No');
 }
 
-echo "<html>
-    <body>
-        <h2>
-            ID: " . $mostrarvehiculo->getId() . "<br>
-            Marca: " . $mostrarvehiculo->getMarca() . "<br>
-            Modelo: " . $mostrarvehiculo->getModelo() . "<br>
-            Año: " . $mostrarvehiculo->getAnio() . "<br>
-            Tipo: " . $mostrarvehiculo->getTipo() . "<br>
-            " . $extra . "
-        </h2>
-    </body>
-</html>";
+echo "<!DOCTYPE html>
+        <html lang='es'>
+        <body>
+                <h2>ID: " . $mostrarvehiculo->getId() . "</h2>
+                <p>Marca: " . $mostrarvehiculo->getMarca() . "<br>
+                Modelo: " . $mostrarvehiculo->getModelo() . "<br>
+                Año: " . $mostrarvehiculo->getAnio() . "<br>
+                Tipo: " . $mostrarvehiculo->getTipo() . "<br>
+                " . $extra . " </p>
+        </body>
+    </html>";

@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once '../app/controllers/VehicleController.php';
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vehiculos_bbdd.php';
+
+use app\controllers\VehicleController;
 
 function request(): void
 {
@@ -13,6 +16,10 @@ function request(): void
     if ($method === 'GET') {
         $id = $_GET['id'];
         $mostrarvehiculo = $controlador->getById((int)$id);
+        if ($mostrarvehiculo === null) {
+            echo "Vehículo no encontrado"; // Si el vehículo no se encuentra, se muestra un mensaje de error y se detiene la ejecución
+            return;
+        }
         require '../app/views/vehiculo_get.php';
         //echo json_encode($mostrarvehiculo);
     }

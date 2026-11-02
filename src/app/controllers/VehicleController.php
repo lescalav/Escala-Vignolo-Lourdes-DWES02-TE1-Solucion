@@ -1,17 +1,18 @@
 <?php
-
 declare(strict_types=1);
 
-require_once __DIR__ . '/../models/Vehiculo.php';
-require_once __DIR__ . '/../models/Coche.php';
-require_once __DIR__ . '/../models/Moto.php';
-require_once __DIR__ . '/../../vehiculos_bbdd.php';
+namespace app\controllers;
+
+
+use app\models\Vehiculo;
+use app\models\Coche;
+use app\models\Moto;
 
 class VehicleController {
     
     public function store(string $vehiculoData): array {
         $todosVehiculos = $this->leerVehiculos();
-        $vehiculoData = json_decode($vehiculoData, true);
+        $vehiculoData = json_decode($vehiculoData, true); // Decodifica el JSON en un array asociativo
         $nuevoVehiculo = $this->definirTipo($vehiculoData);
         $todosVehiculos[] = $nuevoVehiculo;
         return $todosVehiculos;       

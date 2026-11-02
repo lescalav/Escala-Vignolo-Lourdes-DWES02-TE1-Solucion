@@ -1,5 +1,6 @@
 <?php
 
+namespace app\models;
 class Moto extends Vehiculo {
     protected bool $sidecar;
 
@@ -12,9 +13,4 @@ class Moto extends Vehiculo {
         return $this->sidecar;
     }
 
-    public function jsonSerialize(): array {
-        $data = parent::jsonSerialize();
-        $data['sidecar'] = $this->sidecar;
-        return $data;
-    }
 }
