@@ -9,7 +9,13 @@ if ($mostrarvehiculo instanceof Coche) {
 
 echo "<!DOCTYPE html>
         <html lang='es'>
-        <body>
+            <head> 
+                <meta charset='utf-8' />
+                <title>Gestión de Vehículos</title>
+                <meta name='viewport' content='width=device-width, initial-scale=1' />
+            </head>
+        
+            <body>
                 <h2>ID: " . $mostrarvehiculo->getId() . "</h2>
                 <p>Marca: " . $mostrarvehiculo->getMarca() . "<br>
                 Modelo: " . $mostrarvehiculo->getModelo() . "<br>
