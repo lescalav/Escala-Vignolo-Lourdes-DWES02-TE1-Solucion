@@ -13,4 +13,14 @@ class Moto extends Vehiculo {
         return $this->sidecar;
     }
 
+    public function toString(): string
+    {
+        $cuentaconsidecar = '';
+        if ($this->sidecar === true) {
+            $cuentaconsidecar = 'sí';
+        } else {
+            $cuentaconsidecar = 'no';
+        }
+        return parent::toString() . "<br>Sidecar: " . $cuentaconsidecar;
+    }
 }

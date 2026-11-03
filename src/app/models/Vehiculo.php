@@ -38,5 +38,14 @@ protected string $tipo;
         return $this->tipo;
     }
 
+    public function toString(): string {
+        return
+            "ID: " . $this->id .
+            "<br>Marca: " . $this->marca .
+            "<br>Modelo: " . $this->modelo .
+            "<br>Año: " . $this->anio . 
+            "<br>Tipo: " . $this->tipo;
+    }
+
     
 }

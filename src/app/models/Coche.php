@@ -1,6 +1,9 @@
 <?php
 
 namespace app\models;
+
+use Override;
+
 class Coche extends Vehiculo {
     protected int $puertas;
 
@@ -13,5 +16,8 @@ class Coche extends Vehiculo {
         return $this->puertas;
     }
 
-    
+    public function toString(): string
+    {
+        return parent::toString() . "<br>Puertas: " . $this->puertas;
+    }
 }
