@@ -9,7 +9,6 @@ use app\controllers\VehicleController;
 function request(): void
 {
 
-    //header('Content-Type: application/json; charset=utf-8'); // Con esto, el navegador reconoce que es un json y lo muestra formateado
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
     $controlador = new VehicleController();
 
